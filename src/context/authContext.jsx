@@ -9,14 +9,9 @@ const AuthContext = createContext();
 export const useAuth = () => useContext(AuthContext);
 
 export const AuthProvider = ({ children }) => {
-  const navigate =  useNavigate()
+  const navigate = useNavigate();
   const { response, operation } = useAxios();
   const [loginData, setLoginData] = useState({ email: "", password: "" });
-  const [signupUser, setSignUpUser] = useState({
-    username: "",
-    email: "",
-    password: "",
-  });
   const [encodedToken, setEncodedToken] = useState(null);
 
   useEffect(() => {
@@ -38,30 +33,20 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     if (response !== undefined) {
-      localStorage.setItem('encodedToken',JSON.stringify(response.data.accessToken))
-      localStorage.setItem('user',JSON.stringify(response.data.user))
+      localStorage.setItem(
+        "encodedToken",
+        JSON.stringify(response.data.accessToken)
+      );
+      localStorage.setItem("user", JSON.stringify(response.data.user));
       setEncodedToken(response.data.accessToken);
     }
   }, [response]);
-  const signupHandler = (e) => {
-    e.preventDefault();
-    operation({
-      method: "post",
-      url: `${apiUrl}/user/registerUser`,
-      data: signupUser,
-    });
-    setSignUpUser({
-      userName: "",
-      email: "",
-      password: "",
-    });
-  };
 
   const handleLogout = () => {
     setEncodedToken(null);
-    localStorage.clear()
+    localStorage.clear();
     toast.success("Logged out .", { duration: 1000 });
-    navigate('/login')
+    navigate("/login");
   };
 
   return (
@@ -72,9 +57,6 @@ export const AuthProvider = ({ children }) => {
         setLoginData,
         loginData,
         handleLogout,
-        setSignUpUser,
-        signupUser,
-        signupHandler,
       }}
     >
       {children}
