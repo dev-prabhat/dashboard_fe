@@ -12,6 +12,8 @@ export const useSale = () => useContext(SaleContext);
 export const SaleProvider = ({ children }) => {
   const location = useLocation();
   const [salesData, setSalesData] = useState(undefined);
+  const [salesDataForDay, setSalesDataForDay] = useState(undefined);
+  const [revenueDataForDay, setRevenueDataDataForDay] = useState(undefined);
   const { encodedToken } = useAuth();
   const { response: saleResponse, operation: postSaleOperation } = useAxios();
   const { response: saleADayResponse, operation: getSalesADay } = useAxios();
@@ -65,11 +67,19 @@ export const SaleProvider = ({ children }) => {
     if (saleResponse !== undefined) {
       setSalesData(saleResponse);
     }
-  }, [saleResponse]);
+    if(saleADayResponse !== undefined){
+      setSalesDataForDay(saleADayResponse)
+    }
+    if(revenueForADayResponse !== undefined){
+      setRevenueDataDataForDay(revenueForADayResponse)
+    }
+  }, [saleResponse, saleADayResponse, revenueForADayResponse]);
 
   useEffect(() => {
     if (location.pathname == "/login") {
       setSalesData(undefined);
+      setSalesDataForDay(undefined);
+      setRevenueDataDataForDay(undefined)
     }
   }, [location]);
 
@@ -79,11 +89,11 @@ export const SaleProvider = ({ children }) => {
         handleSaleOnSubmit,
         saleResponse,
         handleDateOnChange,
-        revenueForADayResponse,
         revenueForAMonthResponse,
         revenueForAYearResponse,
-        saleADayResponse,
         salesData,
+        salesDataForDay,
+        revenueDataForDay,
       }}
     >
       {children}

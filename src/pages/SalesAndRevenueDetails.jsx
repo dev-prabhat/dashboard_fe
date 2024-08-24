@@ -7,10 +7,10 @@ import Navbar from "../components/Navbar";
 const SalesDetails = () => {
   const {
     handleDateOnChange,
-    revenueForADayResponse,
     revenueForAMonthResponse,
     revenueForAYearResponse,
-    saleADayResponse,
+    salesDataForDay,
+    revenueDataForDay,
   } = useSale();
 
   const [date, setDate] = useState("");
@@ -26,7 +26,7 @@ const SalesDetails = () => {
       <div className="flex flex-col items-center p-4">
         {revenueForAMonthResponse && revenueForAYearResponse && (
           <RevenueSummary
-            dailyRevenue={revenueForADayResponse?.data}
+            dailyRevenue={revenueDataForDay?.data}
             monthlyRevenue={revenueForAMonthResponse?.data}
             yearlyRevenue={revenueForAYearResponse?.data}
           />
@@ -43,7 +43,7 @@ const SalesDetails = () => {
             className="px-4 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
           />
         </div>
-        {saleADayResponse && (
+        {salesDataForDay && (
           <table className="table-auto my-4 w-full border-collapse border border-gray-200">
             <thead>
               <tr className="bg-gray-100">
@@ -55,7 +55,7 @@ const SalesDetails = () => {
               </tr>
             </thead>
             <tbody>
-              {saleADayResponse?.data?.map((item) =>
+              {salesDataForDay?.data?.map((item) =>
                 item?.products?.map((row) => (
                   <tr key={row._id}>
                     <td className="border border-gray-200 px-4 py-2">
