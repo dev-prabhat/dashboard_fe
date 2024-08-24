@@ -6,6 +6,7 @@ import { useProduct } from "../context/productContext";
 const Product = () => {
   const { productDetails, setProductDetails, handleOnSubmit } = useProduct();
   const { allCategories } = useCategoryContext();
+
   return (
     <div>
       <Navbar />
@@ -69,7 +70,7 @@ const Product = () => {
                 Select a Category
               </option>
               {allCategories?.data?.map((ele) => (
-                <option className="capitalize" key={ele.id} value={ele.id}>
+                <option className="capitalize" key={ele._id} value={ele.name}>
                   {ele.name}
                 </option>
               ))}
