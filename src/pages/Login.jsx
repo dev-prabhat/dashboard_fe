@@ -1,7 +1,9 @@
+import { useState } from "react";
 import { useAuth } from "../context/authContext";
 
 // login page
 export const Login = () => {
+  const [showPassword, setShowPassword] = useState(Boolean);
   const { loginData, handleLogin, setLoginData } = useAuth();
 
   return (
@@ -42,7 +44,7 @@ export const Login = () => {
             </label>
             <input
               id="password"
-              type="password"
+              type={showPassword ? "text" : "password"}
               className="w-full mt-1 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
               placeholder="password"
               onChange={(e) =>
@@ -51,6 +53,23 @@ export const Login = () => {
               value={loginData.password}
               required
             />
+            {showPassword ? (
+              <button
+                className="absolute top-1/2 right-4"
+                type="button"
+                onClick={() => setShowPassword((prev) => !prev)}
+              >
+                Show
+              </button>
+            ) : (
+              <button
+                className="absolute top-1/2 right-4"
+                type="button"
+                onClick={() => setShowPassword((prev) => !prev)}
+              >
+                Hide
+              </button>
+            )}
           </div>
 
           <div className="flex justify-evenly">
