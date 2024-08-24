@@ -53,7 +53,7 @@ const ProductCategory = () => {
           </div>
           <button
             type="submit"
-            className="p-3 m-4 border-2 border-black rounded-md"
+            className="mt-4 bg-white text-blue-500 px-4 py-2 rounded border-blue-500 border-[1px]"
           >
             Submit
           </button>
