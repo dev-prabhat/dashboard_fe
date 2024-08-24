@@ -35,7 +35,30 @@ First, clone the repository to your local machine using the following command:
 ```bash
 git clone https://github.com/dev-prabhat/dashboard_fe.git
 
-cd dashboard_fe
-npm install or yarn install
+```
 
-npm start or yarn start
+```bash
+cd dashboard_fe
+npm install 
+
+```
+
+or
+
+```bash
+cd dashboard_fe
+yarn install 
+
+```
+
+```bash
+npm start 
+
+```
+
+or
+
+```bash
+yarn start
+
+```
