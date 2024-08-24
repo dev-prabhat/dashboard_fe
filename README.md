@@ -55,11 +55,5 @@ VITE_API_URL = http://localhost:8000/api
 ```
 
 ```bash
-npm start
-```
-
-or
-
-```bash
-yarn start
+yarn dev
 ```
