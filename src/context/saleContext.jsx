@@ -1,6 +1,7 @@
-import { createContext, useContext, useEffect } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { useAxios } from "../customHooks/useAxios";
 import { useAuth } from "./authContext";
+import { useLocation } from "react-router-dom";
 const apiUrl = import.meta.env.VITE_API_URL;
 
 const SaleContext = createContext();
@@ -9,7 +10,9 @@ export const useSale = () => useContext(SaleContext);
 
 // sales context
 export const SaleProvider = ({ children }) => {
-  const { encodedToken } = useAuth()
+  const location = useLocation();
+  const [salesData, setSalesData] = useState(undefined);
+  const { encodedToken } = useAuth();
   const { response: saleResponse, operation: postSaleOperation } = useAxios();
   const { response: saleADayResponse, operation: getSalesADay } = useAxios();
   const { response: revenueForADayResponse, operation: getRvenueForADay } =
@@ -42,7 +45,7 @@ export const SaleProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    if(encodedToken){
+    if (encodedToken) {
       getRevenueForAMonth({
         method: "get",
         url: `${apiUrl}/sale/revenue/month/${new Date().getFullYear()}/${
@@ -57,7 +60,19 @@ export const SaleProvider = ({ children }) => {
       });
     }
   }, [encodedToken]);
-  
+
+  useEffect(() => {
+    if (saleResponse !== undefined) {
+      setSalesData(saleResponse);
+    }
+  }, [saleResponse]);
+
+  useEffect(() => {
+    if (location.pathname == "/login") {
+      setSalesData(undefined);
+    }
+  }, [location]);
+
   return (
     <SaleContext.Provider
       value={{
@@ -68,6 +83,7 @@ export const SaleProvider = ({ children }) => {
         revenueForAMonthResponse,
         revenueForAYearResponse,
         saleADayResponse,
+        salesData,
       }}
     >
       {children}

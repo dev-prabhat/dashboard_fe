@@ -8,7 +8,7 @@ import Navbar from "../components/Navbar";
 const Home = () => {
   const { allProducts } = useProduct();
   const { allCategories } = useCategoryContext();
-  const { handleSaleOnSubmit, saleResponse } = useSale();
+  const { handleSaleOnSubmit , salesData} = useSale();
   const [rows, setRows] = useState([
     { _id: "", product: "", category: "", price: "", tax: "", gstRate: "" },
   ]);
@@ -143,7 +143,7 @@ const Home = () => {
             Submit
           </button>
         </div>
-        {saleResponse && (
+        {salesData && (
           <table className="table-auto my-4 w-full border-collapse border border-gray-200">
             <thead>
               <tr className="bg-gray-100">
@@ -155,7 +155,7 @@ const Home = () => {
               </tr>
             </thead>
             <tbody>
-              {saleResponse?.data?.products?.map((row) => (
+              {salesData?.data?.products?.map((row) => (
                 <tr key={row._id}>
                   <td className="border border-gray-200 px-4 py-2">
                     <p className="capitalize">{row.product.name}</p>
