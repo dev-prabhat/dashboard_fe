@@ -34,31 +34,32 @@ First, clone the repository to your local machine using the following command:
 
 ```bash
 git clone https://github.com/dev-prabhat/dashboard_fe.git
-
 ```
 
 ```bash
 cd dashboard_fe
 npm install 
-
 ```
 
 or
 
 ```bash
 cd dashboard_fe
-yarn install 
+yarn install
+```
 
+Create a .env file in the root of the project and add the following environment variable:
+
+```bash
+VITE_API_URL = http://localhost:8000/api
 ```
 
 ```bash
-npm start 
-
+npm start
 ```
 
 or
 
 ```bash
 yarn start
-
 ```
