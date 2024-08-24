@@ -13,17 +13,32 @@ const Navbar = () => {
       <ul className="flex gap-5 my-4">
         {user.isAdmin ? (
           navItem?.map((ele) => (
-            <li key={ele} className="text-2xl">
-              <NavLink to={`/${ele.toLowerCase()}`}>{ele}</NavLink>
+            <li key={ele} className="text-lg">
+              <NavLink
+                className="text-blue-500 hover:border-b-blue-700 hover:border-b-2"
+                to={`/${ele.toLowerCase()}`}
+              >
+                {ele}
+              </NavLink>
             </li>
           ))
         ) : (
-          <li className="text-2xl">
-            <NavLink to={`/${navItem[0].toLowerCase()}`}>{navItem[0]}</NavLink>
+          <li className="text-lg">
+            <NavLink
+              className="text-blue-500 hover:border-b-blue-700 hover:border-b-2"
+              to={`/${navItem[0].toLowerCase()}`}
+            >
+              {navItem[0]}
+            </NavLink>
           </li>
         )}
       </ul>
-      <button onClick={handleLogout}>Logout</button>
+      <button
+        className="mt-4 bg-white text-blue-500 px-4 py-2 rounded border-blue-500 border-[1px]"
+        onClick={handleLogout}
+      >
+        Logout
+      </button>
     </div>
   );
 };

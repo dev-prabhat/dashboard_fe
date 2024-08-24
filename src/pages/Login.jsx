@@ -12,7 +12,7 @@ export const Login = () => {
         <form className="space-y-6" onSubmit={handleLogin}>
           <h1 className="text-2xl font-bold text-center text-gray-800">
             Welcome to{" "}
-            <span className="text-indigo-600">Sales Dashboard App</span>
+            <span className="text-blue-500">Sales Dashboard App</span>
           </h1>
 
           <div>
@@ -74,7 +74,7 @@ export const Login = () => {
 
           <div className="flex justify-evenly">
             <p
-              className="text-sm text-indigo-600 cursor-pointer w-fit"
+              className="text-sm text-blue-500 cursor-pointer w-fit"
               onClick={() =>
                 setLoginData({
                   email: "singhprabhat@gmail.com",
@@ -85,7 +85,7 @@ export const Login = () => {
               User Credentials
             </p>
             <p
-              className="text-sm text-indigo-600 cursor-pointer w-fit"
+              className="text-sm text-blue-500 cursor-pointer w-fit"
               onClick={() =>
                 setLoginData({
                   email: "developerprabhat@gmail.com",
@@ -99,7 +99,7 @@ export const Login = () => {
 
           <button
             type="submit"
-            className="w-full py-2 text-white bg-indigo-600 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            className="w-full py-2 text-white bg-blue-500 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
           >
             Login
           </button>
