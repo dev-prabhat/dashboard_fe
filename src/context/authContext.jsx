@@ -8,6 +8,7 @@ const AuthContext = createContext();
 
 export const useAuth = () => useContext(AuthContext);
 
+// auth context
 export const AuthProvider = ({ children }) => {
   const navigate = useNavigate();
   const { response, operation } = useAxios();

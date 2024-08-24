@@ -3,6 +3,7 @@ import { useAuth } from "../context/authContext";
 
 const navItem = ["Home", "Category", "Product", "Salesdatails"];
 
+// navBar component
 const Navbar = () => {
   const { handleLogout } = useAuth();
   const user = JSON.parse(localStorage.getItem("user"));

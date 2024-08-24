@@ -2,6 +2,7 @@ import Navbar from "../components/Navbar";
 import { useCategoryContext } from "../context/categoryContext";
 import { useProduct } from "../context/productContext";
 
+// product page where admin can add products
 const Product = () => {
   const { productDetails, setProductDetails, handleOnSubmit } = useProduct();
   const { allCategories } = useCategoryContext();

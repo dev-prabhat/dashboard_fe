@@ -7,6 +7,7 @@ const SaleContext = createContext();
 
 export const useSale = () => useContext(SaleContext);
 
+// sales context
 export const SaleProvider = ({ children }) => {
   const { encodedToken } = useAuth()
   const { response: saleResponse, operation: postSaleOperation } = useAxios();
@@ -35,6 +36,7 @@ export const SaleProvider = ({ children }) => {
     postSaleOperation({
       method: "post",
       url: `${apiUrl}/sale/createSale`,
+      headers: { authorization: encodedToken },
       data: salesData,
     });
   };

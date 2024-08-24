@@ -8,6 +8,7 @@ const CategoryContext = createContext();
 
 export const useCategoryContext = () => useContext(CategoryContext);
 
+// category context
 export const CategoryProvider = ({ children }) => {
   const { encodedToken } = useAuth()
   const { response: postCategoryResponse, operation: postCategoryOperation } =

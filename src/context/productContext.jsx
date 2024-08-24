@@ -8,6 +8,7 @@ const ProductContext = createContext();
 
 export const useProduct = () => useContext(ProductContext);
 
+// product context
 export const ProductProvider = ({ children }) => {
   const { encodedToken } = useAuth()
   const { response: allProducts, operation: getProducts } = useAxios();

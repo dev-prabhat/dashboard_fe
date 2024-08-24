@@ -1,6 +1,7 @@
 import Navbar from "../components/Navbar";
 import { useCategoryContext } from "../context/categoryContext";
 
+// product category page where admin can add categories
 const ProductCategory = () => {
   const { categoryData, setCategoryData, handleOnSubmit } =
     useCategoryContext();

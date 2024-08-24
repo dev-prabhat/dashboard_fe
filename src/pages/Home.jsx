@@ -4,6 +4,7 @@ import { useCategoryContext } from "../context/categoryContext";
 import { useSale } from "../context/saleContext";
 import Navbar from "../components/Navbar";
 
+// home page where user can enter sales details
 const Home = () => {
   const { allProducts } = useProduct();
   const { allCategories } = useCategoryContext();
@@ -43,6 +44,12 @@ const Home = () => {
     ]);
   };
 
+  const handleSubmit = () => {
+    handleSaleOnSubmit(rows);
+    setRows([
+      { _id: "", product: "", category: "", price: "", tax: "", gstRate: "" },
+    ]);
+  };
   return (
     <div>
       <Navbar />
@@ -122,13 +129,20 @@ const Home = () => {
             ))}
           </tbody>
         </table>
-        <button
-          onClick={addRow}
-          className="mt-4 bg-blue-500 text-white px-4 py-2 rounded"
-        >
-          Add Row
-        </button>
-        <button onClick={() => handleSaleOnSubmit(rows)}>Submit</button>
+        <div className="flex gap-4">
+          <button
+            onClick={addRow}
+            className="mt-4 bg-blue-500 text-white px-4 py-2 rounded"
+          >
+            Add Row
+          </button>
+          <button
+            onClick={handleSubmit}
+            className="mt-4 bg-white text-blue-500 px-4 py-2 rounded border-blue-500 border-[1px]"
+          >
+            Submit
+          </button>
+        </div>
         {saleResponse && (
           <table className="table-auto my-4 w-full border-collapse border border-gray-200">
             <thead>

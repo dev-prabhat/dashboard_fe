@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
 import { useAuth } from "../context/authContext";
 
+// landing page of the app
 export const LandingPage = () => {
   const { encodedToken } = useAuth();
 

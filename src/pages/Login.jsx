@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom";
 import { useAuth } from "../context/authContext";
 
+// login page
 export const Login = () => {
   const { loginData, handleLogin, setLoginData } = useAuth();
 

@@ -3,6 +3,7 @@ import { useSale } from "../context/saleContext";
 import RevenueSummary from "../components/RevenueDetails";
 import Navbar from "../components/Navbar";
 
+// sales and revenue page where admin can see revenue and sales details
 const SalesDetails = () => {
   const {
     handleDateOnChange,

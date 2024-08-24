@@ -1,5 +1,5 @@
-/* eslint-disable react/prop-types */
 
+// revenueSummary component
 function RevenueSummary({ dailyRevenue, monthlyRevenue, yearlyRevenue }) {
   return (
     <div className="stats shadow w-full bg-white">
