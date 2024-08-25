@@ -11,7 +11,7 @@ const Navbar = () => {
   return (
     <div className="w-full flex items-center justify-around">
       <ul className="flex gap-5 my-4">
-        {user.isAdmin ? (
+        {user?.isAdmin ? (
           navItem?.map((ele) => (
             <li key={ele} className="text-lg">
               <NavLink

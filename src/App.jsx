@@ -8,6 +8,7 @@ import { PrivateRoute } from "./components/PrivateRoute";
 import { AuthRoute } from "./components/AuthRoute";
 import { Login } from "./pages/Login";
 import { LandingPage } from "./pages/Landingpage";
+import { ProtectedRoute } from "./components/ProtectedRoute";
 
 function App() {
   return (
@@ -15,7 +16,9 @@ function App() {
       <Toaster />
       <Routes>
         <Route path="/" element={<LandingPage />} />
+        <Route element={<ProtectedRoute />}>
           <Route path="/home" element={<Home />} />
+        </Route>
         <Route element={<PrivateRoute />}>
           <Route path="/category" element={<ProductCategory />} />
           <Route path="/product" element={<Product />} />

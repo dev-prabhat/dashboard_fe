@@ -10,7 +10,7 @@ export const PrivateRoute = () => {
    if(!encodedToken){
     return <Navigate to="/login" state={{ from: location }} replace />;
    }
-   if(!user.isAdmin){
+   if(!user?.isAdmin){
     return <Navigate to="/home" replace />;
    }
    return <Outlet />
