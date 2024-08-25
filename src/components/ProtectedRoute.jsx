@@ -1,6 +1,7 @@
 import { Navigate, useLocation, Outlet } from "react-router-dom";
 import { useAuth } from "../context/authContext";
 
+// protected route wrapper only when user is login 
 export const ProtectedRoute = () => {
   const { encodedToken } = useAuth();
   const location = useLocation();
